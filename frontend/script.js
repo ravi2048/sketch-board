@@ -1,6 +1,5 @@
-let socket = io("https://sketch-board-s7jw.onrender.com");
+let socket = io("http://localhost:5000");
 let toolsCont = document.querySelector(".tools-cont");
-let optionsCont = document.querySelector(".options-cont");
 let optionsFlag = true;
 let pencilToolCont = document.querySelector(".pencil-tool-cont");
 let eraserToolCont = document.querySelector(".eraser-tool-cont");
@@ -11,30 +10,6 @@ let upload = document.querySelector(".upload");
 let pencilFlag = false;
 let eraserFlag = false;
 
-optionsCont.addEventListener("click", (e) => {
-    // true -> tools show, false -> hide tools
-    optionsFlag = !optionsFlag;
-
-    if (optionsFlag) openTools();
-    else closeTools();
-})
-
-
-function openTools() {
-    let iconElem = optionsCont.children[0];
-    iconElem.classList.remove("fa-times");
-    iconElem.classList.add("fa-bars");
-    toolsCont.style.display = "flex";
-}
-function closeTools() {
-    let iconElem = optionsCont.children[0];
-    iconElem.classList.remove("fa-bars");
-    iconElem.classList.add("fa-times");
-    toolsCont.style.display = "none";
-
-    pencilToolCont.style.display = "none";
-    eraserToolCont.style.display = "none";
-}
 
 pencil.addEventListener("click", (e) => {
     // true -> show pencil tool, false -> hide pencil tool
@@ -65,8 +40,8 @@ upload.addEventListener("click", (e) => {
 
         let stickyTemplateHTML = `
         <div class="header-cont">
-            <div class="minimize"></div>
-            <div class="remove"></div>
+            <div class="minimize" title="minimize">➖</div>
+            <div class="remove" title="delete">❌</div>
         </div>
         <div class="note-cont">
             <img src="${url}"/>
@@ -79,8 +54,8 @@ upload.addEventListener("click", (e) => {
 sticky.addEventListener("click", (e) => {
     let stickyTemplateHTML = `
     <div class="header-cont">
-        <div class="minimize"></div>
-        <div class="remove"></div>
+        <div class="minimize" title="minimize">➖</div>
+        <div class="remove" title="delete">❌</div>
     </div>
     <div class="note-cont">
         <textarea spellcheck="false"></textarea>
