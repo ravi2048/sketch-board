@@ -1,4 +1,4 @@
-let socket = io("http://localhost:5000");
+let socket = io("https://sketch-board-s7jw.onrender.com");
 let toolsCont = document.querySelector(".tools-cont");
 let optionsCont = document.querySelector(".options-cont");
 let optionsFlag = true;

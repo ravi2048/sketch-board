@@ -1,9 +1,11 @@
 const express = require("express"); 
 const socket = require("socket.io");
-const cors = require("cors");
+// const cors = require("cors");
 
-const app = express(); 
-app.use(cors());
+const app = express();
+app.use(express.static("frontend"));
+
+// app.use(cors());
 
 let port = process.env.PORT || 5000;
 let server = app.listen(port, () => {
@@ -11,10 +13,10 @@ let server = app.listen(port, () => {
 })
 
 let io = socket(server, {
-    cors: {
-        origin: ["http://127.0.0.1:5500", "http://localhost:5500"],
-        credentials: false
-    }
+    // cors: {
+    //     origin: ["http://127.0.0.1:5500", "http://localhost:5500"],
+    //     credentials: false
+    // }
 });
 
 io.on("connection", (socket) => {
