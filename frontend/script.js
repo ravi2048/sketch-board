@@ -1,4 +1,4 @@
-let socket = io("http://localhost:5000");
+let socket = io("https://sketch-board-s7jw.onrender.com/");
 let toolsCont = document.querySelector(".tools-cont");
 let optionsFlag = true;
 let pencilToolCont = document.querySelector(".pencil-tool-cont");
@@ -35,7 +35,7 @@ eraser.addEventListener("click", (e) => {
 
     document.body.classList.remove("pencil-cursor");
     document.body.classList.add("eraser-cursor")
-    
+
     if (eraserToolFlag) {
         eraserToolCont.style.display = "flex";
         pencilToolCont.style.display = "none";
