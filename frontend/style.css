@@ -5,12 +5,14 @@
 body {
     padding: 0;
     margin: 0;
-}* {
-    box-sizing: border-box;
+    cursor: url("./icons/PencilCursor.png"), auto;
 }
-body {
-    margin: 0;
-    padding: 0;
+
+.pencil-cursor {
+    cursor: url("./icons/PencilCursor.png"), auto;
+}
+.eraser-cursor {
+    cursor: url("./icons/EraserCursor.png"), auto;   
 }
 
 .options-cont {
@@ -53,7 +55,7 @@ body {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     height: 5rem;
     width: 8rem;
-    position: relative;
+    position: fixed;
     top: 6rem;
     left: 34vw;
     border-radius: 3px;
@@ -107,11 +109,13 @@ body {
 }
 
 .sticky-cont {
-    height: 15rem;
-    width: 15rem;
+    height: 20rem;
+    width: 20rem;
     position: absolute;
     top: 15rem;
     left: 10rem;
+    cursor: auto;
+    background-color: #F0F8FF;
 }
 .header-cont {
     height: 2rem;
@@ -119,6 +123,8 @@ body {
     justify-content: flex-end;
     align-items: center;
     background-color: #f1f2f6;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
 }
 .header-cont > * {
     height: 1.5rem;
@@ -134,6 +140,7 @@ body {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 textarea {
+    font-size: 1rem;
     height: 100%;
     width: 100%;
     outline: none;

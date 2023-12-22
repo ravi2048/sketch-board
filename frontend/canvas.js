@@ -105,25 +105,25 @@ pencilColor.forEach((colorElem) => {
         let color = colorElem.classList[0];
         penColor = color;
         tool.strokeStyle = penColor;
+        
+        pencilToolCont.style.display = "none";
+        pencilToolFlag = false;
     })
 })
 
 pencilWidthElem.addEventListener("change", (e) => {
     penWidth = pencilWidthElem.value;
     tool.lineWidth = penWidth;
+
+    // pencilToolCont.style.display = "none";
+    // pencilToolFlag = false;
 })
 eraserWidthElem.addEventListener("change", (e) => {
     eraserWidth = eraserWidthElem.value;
     tool.lineWidth = eraserWidth;
-})
-eraser.addEventListener("click", (e) => {
-    if (eraserFlag) {
-        tool.strokeStyle = eraserColor;
-        tool.lineWidth = eraserWidth;
-    } else {
-        tool.strokeStyle = penColor;
-        tool.lineWidth = penWidth;
-    }
+
+    // eraserToolCont.style.display = "none";
+    // eraserToolFlag = false;
 })
 
 download.addEventListener("click", (e) => {
@@ -148,90 +148,3 @@ socket.on("drawStroke", (data) => {
 socket.on("redoUndo", (data) => {
     undoRedoCanvas(data);
 })
-
-
-
-// let canvas = document.querySelector("canvas");
-// canvas.width = window.innerWidth;
-// canvas.height = window.innerHeight;
-
-// let canvasCtx = canvas.getContext("2d");
-
-// canvasCtx.strokeStyle = "red";
-// canvasCtx.lineWidth  = "5" 
-
-// let isMouseDown = false;
-// let pencilWidthElem = document.querySelector(".pencil-width");
-// let pencilColorElem = document.querySelector(".pencil-color-cont");
-
-// pencilWidthElem.addEventListener("change", (e) => {
-//     canvasCtx.lineWidth = e.target.value;
-// })
-
-// pencilColorElem.addEventListener("click", (e) => {
-//     const pencilColor = e.target.classList[0];
-//     canvasCtx.strokeStyle = pencilColor;
-//     console.log(e.target.classList[0]);
-// })
-// canvas.addEventListener("mousedown", (e) => {
-//     isMouseDown = true;
-//     createNewPath({
-//         x: e.clientX,
-//         y: e.clientY
-//     })
-// });
-
-// canvas.addEventListener("mousemove", (e) => {
-//     if(isMouseDown) {
-//         drawNewPath({
-//             x: e.clientX,
-//             y: e.clientY
-//         })
-//     }
-// });
-
-// canvas.addEventListener("mouseup", (e) => {
-//     isMouseDown = false;
-// });
-
-// function createNewPath(posObj) {
-//     canvasCtx.beginPath();
-//     canvasCtx.moveTo(posObj.x, posObj.y);
-// }
-
-// function drawNewPath(posObj) {
-//     canvasCtx.lineTo(posObj.x, posObj.y);
-//     canvasCtx.stroke()
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
