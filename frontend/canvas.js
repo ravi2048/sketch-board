@@ -114,21 +114,14 @@ pencilColor.forEach((colorElem) => {
 pencilWidthElem.addEventListener("change", (e) => {
     penWidth = pencilWidthElem.value;
     tool.lineWidth = penWidth;
-
-    // pencilToolCont.style.display = "none";
-    // pencilToolFlag = false;
 })
 eraserWidthElem.addEventListener("change", (e) => {
     eraserWidth = eraserWidthElem.value;
     tool.lineWidth = eraserWidth;
-
-    // eraserToolCont.style.display = "none";
-    // eraserToolFlag = false;
 })
 
 download.addEventListener("click", (e) => {
     let url = canvas.toDataURL();
-
     let a = document.createElement("a");
     a.href = url;
     a.download = "board.jpg";
@@ -139,7 +132,7 @@ download.addEventListener("click", (e) => {
 
 
 socket.on("beginPath", (data) => {
-    // data -> data from server
+    // data -> data emitted from server
     beginPath(data);
 })
 socket.on("drawStroke", (data) => {

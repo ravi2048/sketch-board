@@ -1,4 +1,4 @@
-let socket = io("https://sketch-board-s7jw.onrender.com/");
+let socket = io("https://sketch-board-s7jw.onrender.com");
 let toolsCont = document.querySelector(".tools-cont");
 let optionsFlag = true;
 let pencilToolCont = document.querySelector(".pencil-tool-cont");
@@ -123,8 +123,6 @@ function dragAndDrop(element, event) {
 
     moveAt(event.pageX, event.pageY);
 
-    // moves the ball at (pageX, pageY) coordinates
-    // taking initial shifts into account
     function moveAt(pageX, pageY) {
         element.style.left = pageX - shiftX + 'px';
         element.style.top = pageY - shiftY + 'px';
@@ -134,10 +132,8 @@ function dragAndDrop(element, event) {
         moveAt(event.pageX, event.pageY);
     }
 
-    // move the ball on mousemove
     document.addEventListener('mousemove', onMouseMove);
 
-    // drop the ball, remove unneeded handlers
     element.onmouseup = function () {
         document.removeEventListener('mousemove', onMouseMove);
         element.onmouseup = null;
