@@ -31,23 +31,25 @@ body {
 }
 .tools-cont {
     display: flex;
-    height: 5rem;
-    width: 80vw;
+    height: 3rem;
+    width: 30rem;
     background-color: #f1f2f6;
     justify-content: space-around;
     align-items: center;
     position: fixed;
     left: 50%;
+    top: 1rem;
     transform: translateX(-50%);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 0.3rem;
 }
 
 
 
 .tools-cont > * {
     display: block;
-    height: 4rem;
-    width: 4rem;
+    height: 2rem;
+    width: 2rem;
     cursor: pointer;
 }
 .pencil-tool-cont {
